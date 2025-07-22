@@ -1,0 +1,18 @@
+.input-form-group .right_icon input, .input-form-group .right_icon textarea{padding-right: 0px;}
+.input-form-group .right-label{padding: 5px 10px;}
+.input-form-group .input-disabled{border-color: #e6e6e6!important;}
+input:disabled{background-color: #fdfcfb;color: #999999;}
+
+
+.react-tel-input .form-control{ width: 100% !important; height: 2.5rem !important; border-radius: 0.375rem !important; }
+
+.loader { width: 1rem; height: 1rem; border: 2px solid white; border-top: 2px solid transparent; border-radius: 50%; animation: spin 0.5s linear infinite;}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-overlay {
+  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
+}
