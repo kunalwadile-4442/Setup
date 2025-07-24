@@ -18,10 +18,10 @@ import {
   setSortOrder,
 } from "../Redux/posterReducer/posterSlice";
 
-import Modal from "../components/Modal/Modal";
-import Button from "../components/Button/Button";
+import Modal from "../components/modal/Modal";
+import Button from "../components/button/Button";
 import InputField from "../components/InputField";
-import ConfirmModalPopup from "../components/Modal/ConformationPopup";
+import ConfirmModalPopup from "../components/modal/ConformationPopup";
 import CustomDropdown from "../components/CustomDropdown";
 
 import { useForm, type SubmitHandler } from "react-hook-form";

@@ -24,7 +24,7 @@ const ConfirmModalPopup: React.FC<ConfirmModalPopupProps> = ({
   return (
     <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-gray-400 bg-opacity-50">
       <div className="relative p-4 w-full max-w-lg">
-        <div className="relative bg-white rounded-lg shadow">
+        <div className="relative bg-white rounded-lg px-3 py-5 shadow">
           {/* Header */}
           <div className="flex items-center justify-between p-4 rounded-t">
             <div className="w-full text-center">

@@ -1,6 +1,6 @@
 import React, { type MouseEventHandler } from 'react';
 import ReactDOM from 'react-dom';
-import Button from '../Button/Button';
+import Button from '../button/Button';
 
 interface ModalProps {
   show: boolean;

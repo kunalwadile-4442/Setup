@@ -19,6 +19,13 @@ export default {
         'custom-heavy': '0 6px 20px rgba(0, 0, 0, 0.2)',
         'custom-colored': '0 4px 10px rgba(59, 130, 246, 0.4)', // example with Tailwind blue
       },
+      maxHeight: {
+      '0': '0',
+      '40': '10rem',
+    },
+    transitionProperty: {
+      'height': 'max-height',
+    },
     },
   },
   plugins: [],

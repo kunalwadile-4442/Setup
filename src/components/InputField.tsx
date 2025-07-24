@@ -84,7 +84,7 @@ const renderInput = (field:any) => {
 
   return (
     <div
-      className={`flex border-[1px] items-center justify-center overflow-hidden ${prop.inputClassName}
+      className={`flex border-[1px] items-center justify-center h-10 rounded-md overflow-hidden ${prop.inputClassName}
         ${prop.error ? "border-red-600" : `focus-within:border-primary border-[#C8C9C9]`}
         ${prop?.rightLabel && "right_icon"}  ${prop.disabled && "input-disabled"}`}
       onClick={callOnFocus}
@@ -199,7 +199,7 @@ const renderInput = (field:any) => {
   }
 
   return (
-    <div className={`input-form-group ${prop.className}`}>
+    <div className={`input-form-group mb-2 ${prop.className}`}>
       {(prop.name || prop?.label) && (
         <p className={`text-[#4E4E4E] text-sm ${prop.labelClassName} whitespace-nowrap`}>
           {prop?.label || prop.name}
