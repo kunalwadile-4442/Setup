@@ -16,3 +16,7 @@ input:disabled{background-color: #fdfcfb;color: #999999;}
 .modal-overlay {
   @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
 }
+
+.table-component table thead tr th:first-child {border-top-left-radius: 6px;}
+.table-component table thead tr th:last-child {border-top-right-radius: 6px;
+}
