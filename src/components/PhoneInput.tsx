@@ -3,18 +3,9 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { App_url } from '../utils/constants/static';
 import { Controller } from 'react-hook-form';
-import type { PhoneDetails } from '../utils/Types/projectInquiry.types';
+import type { IPhoneInput } from '../utils/Types/types';
 
-interface IPhoneInput {
-  label: string;
-  name: string;
-  required?: boolean;
-  control: any;
-  defaultValue?: PhoneDetails;
-  rules?: any;
-  className?: string;
-  error?: any; // Error object for validation
-}
+
 
 const PhoneInputComp: React.FC<IPhoneInput> = ({
   label,

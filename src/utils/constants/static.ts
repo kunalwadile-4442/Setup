@@ -5,6 +5,11 @@ export const App_url = {
     applogo: `${window.location.origin}/assets/icons/applogo.png`,
     backgroundImage: `${window.location.origin}/assets/icons/bg.webp`,
     arrowleft: `${window.location.origin}/assets/icons/arrowleft.png`,
+    Edit: `${window.location.origin}/assets/icons/Edit.svg`,
+    eye: `${window.location.origin}/assets/icons/eye.svg`,
+    Delete: `${window.location.origin}/assets/icons/Delete.svg`,
+
+
   },
   link: {
     INITIAL_URL: "/",

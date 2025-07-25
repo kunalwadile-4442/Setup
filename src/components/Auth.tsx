@@ -73,7 +73,7 @@ const selectedQuote = quotesDB[quoteIndex];
 
   return (
     <div
-      className="h-screen w-full flex justify-between"
+      className="h-screen w-full bg-[#ffffff] flex justify-between"
       style={{
         backgroundImage: `url(${App_url.image.backgroundImage})`,
         backgroundSize: "cover",
