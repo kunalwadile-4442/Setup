@@ -3,8 +3,8 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import logger from 'redux-logger';
 
-import uiReducer from '../Redux/ui/uiSlice';
-import posterReducer from '../Redux/posterReducer/posterSlice';
+import uiReducer from '../routes/Redux/ui/uiSlice';
+import posterReducer from '../routes/Redux/posterReducer/posterSlice';
 
 // 1. Persist config
 const persistConfig = {
@@ -15,7 +15,7 @@ const persistConfig = {
 // 2. Root reducer
 const rootReducer = combineReducers({
   ui: uiReducer,
-  task: posterReducer,
+  auth: posterReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

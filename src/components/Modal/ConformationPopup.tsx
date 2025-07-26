@@ -8,6 +8,8 @@ interface ConfirmModalPopupProps {
   onCancel?: () => void;
   buttonSuccess?: string;
   buttonCancel?: string;
+  buttonSuccessClassName?: string;
+  buttonCancelClassName?: string;
 }
 
 const ConfirmModalPopup: React.FC<ConfirmModalPopupProps> = ({
@@ -17,14 +19,16 @@ const ConfirmModalPopup: React.FC<ConfirmModalPopupProps> = ({
   onConfirm,
   onCancel,
   buttonSuccess,
+  buttonSuccessClassName,
+  buttonCancelClassName,
   buttonCancel,
 }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-gray-400 bg-opacity-50">
+    <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-70">
       <div className="relative p-4 w-full max-w-lg">
-        <div className="relative bg-white rounded-lg px-3 py-5 shadow">
+        <div className="relative bg-white rounded-lg shadow p-3">
           {/* Header */}
           <div className="flex items-center justify-between p-4 rounded-t">
             <div className="w-full text-center">
@@ -63,7 +67,7 @@ const ConfirmModalPopup: React.FC<ConfirmModalPopupProps> = ({
               <button
                 type="button"
                 onClick={onConfirm}
-                className="text-white bg-primary hover:bg-primary-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className={`text-white bg-primary hover:bg-primary-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center ${buttonSuccessClassName}`}
               >
                 {buttonSuccess}
               </button>
@@ -71,7 +75,7 @@ const ConfirmModalPopup: React.FC<ConfirmModalPopupProps> = ({
             {buttonCancel && (
               <button
                 onClick={onCancel}
-                className="py-2.5 px-5 ms-3 text-sm font-medium bg-gray-300 hover:bg-gray-400 rounded-lg"
+                className={`py-2.5 px-5 ms-3 text-sm font-medium bg-gray-300 hover:bg-gray-400 rounded-lg ${buttonCancelClassName}`}
               >
                 {buttonCancel}
               </button>

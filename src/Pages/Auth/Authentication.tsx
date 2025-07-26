@@ -10,10 +10,9 @@ function Authentication() {
 
   return (
     <div>
-        {(path === App_url.link.LOGIN || path === App_url.link.REGISTER || path === App_url.link.FORGOT_PASSWORD || path === App_url.link.RESET_PASSWORD)  && 
+        {(path === App_url.link.LOGIN || path === App_url.link.REGISTER || path === App_url.link.FORGOT_PASSWORD || path === App_url.link.RESET_PASSWORD || path === App_url.link.VERIFY_OTP)  && 
           <Auth/>
         }
-        
     </div>
   )
 }

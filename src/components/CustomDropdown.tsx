@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { setDropdownOpen, toggleDropdown } from "../Redux/ui/uiSlice";
+import { setDropdownOpen, toggleDropdown } from "../routes/Redux/ui/uiSlice";
 
 
 interface Option {

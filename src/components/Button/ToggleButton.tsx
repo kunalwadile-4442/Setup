@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../app/hooks';
-import { toggleModal } from '../../Redux/ui/uiSlice';
+import { toggleModal } from '../../routes/Redux/ui/uiSlice';
 
 const ToggleButton = () => {
   const dispatch = useAppDispatch();

@@ -8,7 +8,7 @@ import {
   clearSelectedTaskId,
   setEditMode,
   unsetEditMode,
-} from "../Redux/ui/uiSlice";
+} from "../routes/Redux/ui/uiSlice";
 
 import {
   addTask,
@@ -16,7 +16,7 @@ import {
   sortTasks,
   updateTask,
   setSortOrder,
-} from "../Redux/posterReducer/posterSlice";
+} from "../routes/Redux/posterReducer/posterSlice";
 
 import Modal from "../components/modal/Modal";
 import Button from "../components/button/Button";

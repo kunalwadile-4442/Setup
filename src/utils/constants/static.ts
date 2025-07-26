@@ -8,8 +8,6 @@ export const App_url = {
     Edit: `${window.location.origin}/assets/icons/Edit.svg`,
     eye: `${window.location.origin}/assets/icons/eye.svg`,
     Delete: `${window.location.origin}/assets/icons/Delete.svg`,
-
-
   },
   link: {
     INITIAL_URL: "/",
@@ -17,6 +15,7 @@ export const App_url = {
     LOGIN: "/login",
     REGISTER: "/register",
     FORGOT_PASSWORD: "/forgot-password",
+    VERIFY_OTP: "/verify-otp",
     RESET_PASSWORD: "/reset-password",
     CHANGE_PASSWORD: "/change-password",
     PROFILE: "/profile",
@@ -28,6 +27,17 @@ export const App_url = {
     ADMIN: "admin",
     USER: "user",
   } as const,
+
+  ApiEndPoint:{
+    LOGIN: "/auth/login",
+    REGISTER: "/auth/register",
+    LOGOUT: "/auth/logout",
+    FORGOT_PASSWORD: "/auth/forgot-password",
+    RESET_PASSWORD: "/auth/reset-password",
+    CHANGE_PASSWORD: "/auth/update-password",
+    VERIFY_OTP: "/auth/verify-otp",
+
+  }
 };
 
 export const bgColors = [
@@ -52,26 +62,26 @@ export const sidebarContent: SidebarItem[] = [
     icon: BarChart2,
     roles: [App_url.permission.ADMIN, App_url.permission.USER],
   },
-  {
-    title: "Profile",
-    route: App_url.link.PROFILE,
-    icon: Users,
-    roles: [App_url.permission.ADMIN],
-    children: [
-      {
-        title: "Admin",
-        icon: Users,
-        route: App_url.link.ADMIN_PROFILE,
-        roles: [App_url.permission.ADMIN],
-      },
-      {
-        title: "Users",
-        icon: Users,
-        route: App_url.link.USER_PROFILE,
-        roles: [App_url.permission.ADMIN, App_url.permission.USER],
-      },
-    ],
-  },
+  // {
+  //   title: "Profile",
+  //   route: App_url.link.PROFILE,
+  //   icon: Users,
+  //   roles: [App_url.permission.ADMIN],
+  //   children: [
+  //     {
+  //       title: "Admin",
+  //       icon: Users,
+  //       route: App_url.link.ADMIN_PROFILE,
+  //       roles: [App_url.permission.ADMIN],
+  //     },
+  //     {
+  //       title: "Users",
+  //       icon: Users,
+  //       route: App_url.link.USER_PROFILE,
+  //       roles: [App_url.permission.ADMIN, App_url.permission.USER],
+  //     },
+  //   ],
+  // },
   
     
   {

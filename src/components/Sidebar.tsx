@@ -1,10 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { App_url, sidebarContent } from "../utils/constants/static";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { showConfirmPopup, hideConfirmPopup } from "../Redux/ui/uiSlice";
+import { openModal, closeModal } from "../routes/Redux/ui/uiSlice";
 import ConfirmModalPopup from "../components/modal/ConformationPopup";
 import { useState } from "react";
 import type { SidebarProps } from "../utils/Types/types";
+import { LogoutApi } from "../utils/Api/apiCalls";
+import { setLogout } from "../routes/Redux/posterReducer/posterSlice";
 
 const Sidebar: React.FC<SidebarProps> = ({ role, isSidebarOpen }) => {
   const loc = useLocation();
@@ -20,16 +22,25 @@ const Sidebar: React.FC<SidebarProps> = ({ role, isSidebarOpen }) => {
   };
 
   const confirmPopupOpen = useAppSelector(
-    (state) => state.ui.isConfirmPopupOpen
+    (state) => state.ui.isModalOpen
   );
 
   const handleLogout = () => {
-    dispatch(showConfirmPopup());
+    dispatch(openModal());
   };
-
-  const handleConfirmDelete = () => {
-    dispatch(hideConfirmPopup());
-    nav(App_url.link.LOGIN);
+  const handleConfirmDelete = async() => {
+    try {
+     const response = await LogoutApi();
+     console.log(response);
+     if (response.status === 200){
+        dispatch(setLogout())
+        dispatch(closeModal());
+        nav(App_url.link.LOGIN);
+     }
+    } catch (error) {
+      console.log(error);
+    }
+  
   };
 
   return (
@@ -152,10 +163,11 @@ const Sidebar: React.FC<SidebarProps> = ({ role, isSidebarOpen }) => {
         show={confirmPopupOpen}
         title="Are you sure?"
         description="Do you really want to delete this task? This action cannot be undone."
-        buttonSuccess="Delete"
+        buttonSuccessClassName="bg-red-600 hover:bg-red-700"
+        buttonSuccess="Logout"
         buttonCancel="Cancel"
         onConfirm={handleConfirmDelete}
-        onCancel={() => dispatch(hideConfirmPopup())}
+        onCancel={() => dispatch(closeModal())}
       />
     </>
   );
