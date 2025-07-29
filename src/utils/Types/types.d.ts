@@ -94,6 +94,7 @@ export interface AuthState {
   refreshToken: string | null;
   isLogin: boolean;
   passwordEmail: string
+  profileSet: IApiGetProfileResponse | null
 }
 
 export interface IForgotPasswordPayload{
@@ -108,4 +109,13 @@ export interface IResetPasswordPayload {
   email: string;
   newPassword: string;
   confirmPassword: string;
+}
+
+
+
+export interface IApiGetProfileResponse {
+  statusCode: number;
+  data: IUser;
+  message: string;
+  success: boolean;
 }

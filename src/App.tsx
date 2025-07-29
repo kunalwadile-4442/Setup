@@ -1,12 +1,11 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import DefaultLayout from "./components/Layout/DefaultLayout";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import ChangePassword from "./Pages/Auth/ChangePassword";
-import Profile from "./Pages/Profile/Profile";
-import { App_url } from "./utils/constants/static";
-import Setting from "./Pages/Settings/settings";
-import Authentication from "./Pages/Auth/Authentication";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useAppSelector } from "./app/hooks";
+import DefaultLayout from "./components/Layout/DefaultLayout";
+import Authentication from "./Pages/Auth/Authentication";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Profile from "./Pages/Profile/Profile";
+import Setting from "./Pages/Settings/settings";
+import { App_url } from "./utils/constants/static";
 
 function App() {
   const isLoggedIn = useAppSelector((state) => state.auth.isLogin);
@@ -23,7 +22,6 @@ function App() {
   // Protected routes (dashboard/etc.)
   const protectedRoutes = [
     { path: App_url.link.DASHBOARD, element: <Dashboard /> },
-    { path: App_url.link.CHANGE_PASSWORD, element: <ChangePassword /> },
     { path: App_url.link.SETTINGS, element: <Setting /> },
     { path: App_url.link.PROFILE, element: <Profile /> },
     { path: App_url.link.ADMIN_PROFILE, element: <Profile /> },

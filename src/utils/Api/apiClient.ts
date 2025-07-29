@@ -62,6 +62,9 @@ const apiClient = {
   put: <T = any>(url: string, data?: Record<string, any>) =>
     request<T>('put', url, { data }),
 
+   patch: <T = any>(url: string, data?: Record<string, any>) =>
+    request<T>('patch', url, { data }),
+
   delete: <T = any>(url: string, params?: Record<string, any>) =>
     request<T>('delete', url, { params }),
 };

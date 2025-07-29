@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import { App_url } from "../utils/constants/static";
+import { LuEye, LuSearch, LuEyeOff } from "react-icons/lu";
 
 
 type InputFieldTypes = {
@@ -40,10 +41,13 @@ type InputFieldTypes = {
   chatInputClassName?: string;
 };
 
+
 const InputField = (prop: InputFieldTypes) => {
   // const [Focus, setFocus] = useState(false);
   const {type='text'}=prop
   const [readOnly, setReadonly] = useState(true);
+  const [Password, setPassword] = useState(false);
+
 
   const callOnFocus = (e:any) => {
     e.preventDefault();
@@ -82,6 +86,8 @@ const renderInput = (field:any) => {
     }
   };
 
+
+
   return (
     <div
       className={`flex border-[1px] items-center justify-center overflow-hidden ${prop.inputClassName}
@@ -90,6 +96,11 @@ const renderInput = (field:any) => {
       onClick={callOnFocus}
       onTouchStart={callOnFocus}
     >
+      {prop.useFor === "search" && (
+          <span className="w-[40px] h-[30px] flex items-center justify-center pl-[7px] pr-[7px]">
+            <LuSearch className="h-full text-[#77808D] transform text-[20px]" />
+          </span>
+        )}
       <input
         onKeyDown={prop.onEnterClick && prop.onEnterClick}
         placeholder={
@@ -100,7 +111,7 @@ const renderInput = (field:any) => {
               : ""
         }
         autoComplete={prop?.autocomplete}
-        type={type}
+        type={prop.type === "password" ? !Password ? "password" : "text":type} // Toggle type here
         id={prop.id}
         className={`focus:outline-none w-full px-3 py-2 placeholder:text-sm text-sm h-full ${prop.useFor === "search" ? "max-w-[calc(100%-30px)] pl-0" : ""} ${prop.useFor === "search" ? prop.controlClassName : prop.inputClassName}`}
         {...field}
@@ -111,12 +122,25 @@ const renderInput = (field:any) => {
         disabled={prop.disabled}
         value={field?.value || prop?.value}
       />
+      
 
       {prop?.rightLabel && (
         <span className="right-label cursor-pointer" onClick={onClickRightLabel}>
           {prop?.rightLabel}
         </span>
       )}
+      {prop.type === "password" &&
+          (Password ? (
+            <LuEyeOff
+              className="cursor-pointer ml-2  h-full mr-3"
+              onClick={() => setPassword(!Password)}
+            />
+          ) : (
+            <LuEye
+              className="cursor-pointer ml-2 h-full mr-3"
+              onClick={() => setPassword(!Password)}
+            />
+          ))}
     </div>
   );
 };

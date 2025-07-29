@@ -17,8 +17,7 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = ({
   name,
 
   options = [
-    { label: "Profile", value: App_url.link.PROFILE },
-    { label: "Change Password", value: App_url.link.CHANGE_PASSWORD },
+    { label: "Profile", value: App_url.link.PROFILE }
   ],
 }) => {
   const [open, setOpen] = useState(false);

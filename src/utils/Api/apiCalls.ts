@@ -1,9 +1,13 @@
 import { App_url } from "../constants/static";
 import apiClient from "./apiClient";
 import { toast } from "react-toastify";
-import type { IRegisterPayload, ILoginPayload, IVerifyOtpPayload, IResetPasswordPayload, IForgotPasswordPayload } from "../Types/types";
-
-
+import type {
+  IRegisterPayload,
+  ILoginPayload,
+  IVerifyOtpPayload,
+  IResetPasswordPayload,
+  IForgotPasswordPayload,
+} from "../Types/types";
 
 // ✅ Register API with toast
 export const RegisterApi = async (data: IRegisterPayload) => {
@@ -12,7 +16,8 @@ export const RegisterApi = async (data: IRegisterPayload) => {
     toast.success(response.data.message);
     return response;
   } catch (error: any) {
-    toast.error(error.response?.data?.message || "Registration failed!");
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
     throw error;
   }
 };
@@ -24,7 +29,8 @@ export const LoginApi = async (data: ILoginPayload) => {
     toast.success(response.data.message);
     return response;
   } catch (error: any) {
-    toast.error(error.response?.data?.message || "Login failed!");
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
     throw error;
   }
 };
@@ -35,7 +41,8 @@ export const LogoutApi = async () => {
     toast.success(response.data.message);
     return response;
   } catch (error: any) {
-    toast.error(error.response?.data?.message || "Logout failed!");
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
     throw error;
   }
 };
@@ -43,22 +50,30 @@ export const LogoutApi = async () => {
 export const ForgotPasswordApi = async (payload: IForgotPasswordPayload) => {
   console.log("payload", payload);
   try {
-    const response = await apiClient.post(App_url.ApiEndPoint.FORGOT_PASSWORD,  payload);
+    const response = await apiClient.post(
+      App_url.ApiEndPoint.FORGOT_PASSWORD,
+      payload
+    );
     toast.success(response.data.message);
     return response;
   } catch (error: any) {
-    toast.error(error.response?.data?.message || "User Not Found!");
+   const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
     throw error;
   }
-} 
+};
 
 export const VerifyOtpApi = async (payload: IVerifyOtpPayload) => {
   try {
-    const response = await apiClient.post(App_url.ApiEndPoint.VERIFY_OTP, payload);
+    const response = await apiClient.post(
+      App_url.ApiEndPoint.VERIFY_OTP,
+      payload
+    );
     toast.success(response.data.message);
     return response;
   } catch (error: any) {
-    toast.error(error.response?.data?.message || "invalid otp!");
+   const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
     throw error;
   }
 };
@@ -72,7 +87,54 @@ export const ResetPassword = async (payload: IResetPasswordPayload) => {
     toast.success(response.data.message);
     return response;
   } catch (error: any) {
-    toast.error(error.response?.data?.message || "Logout failed!");
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
+    throw error;
+  }
+};
+
+export const GetUserProfile = async () => {
+  try {
+    const response = await apiClient.get(
+      App_url.ApiEndPoint.GET_USER_PROFILE
+    );
+    // toast.success(response.data.message);
+    console.log("GetUserProfile",response.data.message)
+    return response;
+    
+  } catch (error: any) {
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
+    throw error;
+  }
+};
+
+export const UpdateUserProfile = async (payload: any) => {
+  try {
+    const response = await apiClient.put(
+      App_url.ApiEndPoint.UPDATE_USER_PROFILE,
+      payload
+    );
+    toast.success(response.data.message);
+    return response;
+  } catch (error: any) {
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
+    throw error;
+  }
+};
+
+export const UpdateUserPassword = async (payload: any) => {
+  try {
+    const response = await apiClient.patch(
+      App_url.ApiEndPoint.UPDATE_USER_PASSWORD,
+      payload
+    );
+    toast.success(response.data.message);
+    return response;
+  } catch (error: any) {
+    const errMsg = error?.message; 
+    toast.error(errMsg || "Something went wrong");
     throw error;
   }
 };

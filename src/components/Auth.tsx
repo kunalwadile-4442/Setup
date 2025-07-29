@@ -5,6 +5,7 @@ import { VscQuote } from "react-icons/vsc";
 import { App_url, quotesDB } from "../utils/constants/static";
 import InputField from "./InputField";
 import Button from "./button/Button";
+import applogo  from "/kas_metal.png"
 import RadioButton from "./RadioButton";
 import {
   ForgotPasswordApi,
@@ -184,7 +185,7 @@ const Auth = () => {
           path === App_url.link.FORGOT_PASSWORD ||
           path === App_url.link.REGISTER) && (
           <div className="mt-8">
-            <img className="h-16" src={App_url.image.applogo} alt="logo" />
+            <img className="h-16" src={applogo} alt="logo" />
           </div>
         )}
         <div className="mb-[50px] w-[590px] sm:w-[450px] text-white">

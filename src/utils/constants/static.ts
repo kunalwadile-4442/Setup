@@ -36,7 +36,10 @@ export const App_url = {
     RESET_PASSWORD: "/auth/reset-password",
     CHANGE_PASSWORD: "/auth/update-password",
     VERIFY_OTP: "/auth/verify-otp",
-
+    GET_USER_PROFILE: "/users/profile",
+    UPDATE_USER_PROFILE: "/users/update-profile",
+    UPDATE_USER_PASSWORD: "/users/update-password",
+   
   }
 };
 

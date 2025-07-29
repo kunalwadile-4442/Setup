@@ -7,10 +7,12 @@ export default {
   theme: {
    extend: {
       colors: {
+
         darkbg: '#373232',
         primaryVeryLight:'rgb(17 169 222 / 15%);',
         primaryLight:'rgb(17 169 222 / 18%);',
         primary: '#0DAEE5',
+        primaryHover: "rgb(17 155 202);",
         primaryLoader: '#6CCCED'
       },
        boxShadow: {

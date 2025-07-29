@@ -12,6 +12,7 @@ interface ImagesProps {
   width?: number;
   height?: number;
   auth?: boolean;
+  label?: string
 }
 
 const Images: React.FC<ImagesProps> = (props) => {
@@ -62,6 +63,10 @@ const Images: React.FC<ImagesProps> = (props) => {
 
   const ImagePreview = () =>{
     return(
+      <>
+         <p className={`text-[#4E4E4E] text-sm pb-2  whitespace-nowrap`}>
+          {props.label}
+         </p>
       <picture className={`picture-opacity-1 ${props.imageClassName}`}>
         {imageSrc && <source type={props.type} srcSet={imageSrc} />}
         {imageSrc && (
@@ -75,6 +80,7 @@ const Images: React.FC<ImagesProps> = (props) => {
           />
         )}
       </picture>
+       </>
     )
   }
   return (
